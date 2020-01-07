@@ -1,4 +1,4 @@
-export default const data = {
+export const data = {
     hall1: {
         name: 'Hall 1',
         block: [
