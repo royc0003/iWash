@@ -4,47 +4,42 @@ import Hall from './Hall';
 import Block from './Block';
 import Machine from './Machine';
 
-export default function Body() {
+export default function Body(props) {
+  let componentList;
+
+  switch(props.type){
+      case 1:
+        if(props.list){
+          componentList = props.list.map(item => {
+            return <Hall item={item} navigate={props.navigate}/>
+          });
+        }
+        break;
+      case 2:
+        if(props.list){
+          componentList = props.list.map(item => {
+            return <Block item={item} navigate={props.navigate}/>
+          });
+        }
+        break;
+      case 3:
+        if(props.list){
+          componentList = props.list.map(item => {
+            return <Machine item={item} navigate={props.navigate}/>
+          });
+        }
+        break;
+    }
+
   return (
     <ScrollView style={bodyStyle}>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-       <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Block/>
-      <Block/>
-      <Machine/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
-      <Hall/>
+      {componentList}
     </ScrollView>
   );
 }
 
 const bodyStyle = {
     width: '100%',
-    height: '91%',
-    backgroundColor: '#FFF',
+    height: '100%',
+    backgroundColor: '#000',
 }

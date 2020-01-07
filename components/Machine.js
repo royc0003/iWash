@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 
-export default function Machine() {
+export default function Machine(props) {
   return (
     <View style={machineStyle}>
-      <Text style={machineTextStyle}>WM2912</Text>
-      <Image style={imageStyle} source={dash}/>
+      <Text style={machineTextStyle}>{props.item.name}</Text>
+      <Image style={imageStyle} source={props.item.status ? tick : dash}/>
     </View>
   );
 }

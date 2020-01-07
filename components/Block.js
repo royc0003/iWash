@@ -1,12 +1,15 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, TouchableHighlight } from 'react-native';
 
-export default function Block() {
+export default function Block(props) {
+
   return (
-    <View style={blockStyle}>
-      <Text style={blockTextStyle}>Level 12</Text>
-      <Image style={imageStyle} source={require('../assets/arrow.png')}/>
-    </View>
+    <TouchableHighlight onPress={()=> props.navigate.navigate('MachineList', {machineList: props.item.machine})}>
+      <View style={blockStyle}>
+        <Text style={blockTextStyle}>{props.item.name}</Text>
+        <Image style={imageStyle} source={require('../assets/arrow.png')}/>
+      </View>
+    </TouchableHighlight>
   );
 }
 

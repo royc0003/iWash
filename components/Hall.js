@@ -1,12 +1,15 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, TouchableHighlight } from 'react-native';
 
-export default function Hall() {
+export default function Hall(props) {
+
   return (
-    <View style={hallStyle}>
-      <Text style={hallTextStyle}>Tamarind</Text>
-      <Image style={imageStyle} source={require('../assets/arrow.png')}/>
-    </View>
+    <TouchableHighlight onPress={()=> props.navigate.navigate('BlockList', {blockList: props.item.block})}>
+      <View style={hallStyle}>
+        <Text style={hallTextStyle}>{props.item.name}</Text>
+        <Image style={imageStyle} source={require('../assets/arrow.png')}/>
+      </View>
+    </TouchableHighlight>
   );
 }
 
